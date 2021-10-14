@@ -82,7 +82,7 @@ class Circle {  //arcs
 }
 let outer;
 let inner ;
-if(innerWidth <= 400) {
+if(innerWidth <= 500) {
      outer = new Circle(0,0 , 150,1.7, 0.0002, 20, '#25d7dd78') // clock
      inner = new Circle(0,0 , 100, 1.5, -0.001, 10, '#25d7dd') // clock
 }else {
