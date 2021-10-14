@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design</title>
+    <script defer src="./main.js"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+            * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        } 
+
+    body, * {
+        margin: 0;
+        background-color: #121212;
+        font-family: 'Montserrat', sans-serif;
+    }
+    canvas {
+        position: absolute;
+        z-index: -100;
+    }
+    .time{
+        position: absolute;
+        z-index: 100;
+        color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+    }
+
+    @media screen and (max-width: 600px) {
+  .time {
+    font-size: 2.5rem;
+  }
+}
+    
+</style>
+
+</head>
+<body>
+    <canvas></canvas>
+    <h1 class="time">Welcome</h1>
+</body>
+</html>
