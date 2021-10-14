@@ -38,7 +38,12 @@ class Particle {
 
     update() {
         this.draw();
-        
+        if (this.x + this.radius >= innerWidth/2 || this.x - this.radius <= -innerWidth / 2) {
+            this.dx = -this.dx;
+        }
+        if (this.y + this.radius >= innerHeight/ 2 || this.y - this.radius <= -innerHeight / 2) {
+            this.dy = -this.dy;
+        }
         this.y += this.dy;
         this.x += this.dx;
         //molecule big
@@ -81,6 +86,7 @@ class Circle {  //arcs
     }
 }
 let outer;
+
 let inner ;
 if(innerWidth <= 500) {
      outer = new Circle(0,0 , 150,1.7, 0.0002, 20, '#25d7dd78') // clock
@@ -93,11 +99,11 @@ if(innerWidth <= 500) {
 
 
 let particles = [];
-let colors = ['#25d7dd78','#25d7dd']
+let colors = ['#00b9b738','#00b9b738']
 
-for(let i = 0 ; i<700 ; ++i) {
-    let dx = (Math.random() - 0.5) * 0.05;
-    let dy = (Math.random() - 0.5) * 0.05;
+for(let i = 0 ; i<900 ; ++i) {
+    let dx = (Math.random() - 0.5) * 0.5;
+    let dy = (Math.random() - 0.5) * 0.5;
     let radius = Math.random() * 5;
     let x = Math.random() * (2*innerWidth-innerWidth/2) + (-innerWidth/2);
     let y = Math.random() * (2*innerHeight-innerHeight/2) + (-innerHeight/2) ;
@@ -117,6 +123,22 @@ function animate() {
 
    for(let i = 0 ; i<particles.length ; ++i) {
   particles[i].update();
+
+  for (let j = i; j < particles.length; ++j) {
+    let dx = particles[i].x - particles[j].x;
+    let dy = particles[i].y - particles[j].y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 100) {
+        c.beginPath();
+        c.strokeStyle = particles[i].color;
+        c.moveTo(particles[i].x, particles[i].y);
+        c.lineTo(particles[j].x, particles[j].y);
+        c.lineWidth = 1
+        c.stroke();
+    }
+
+}
+
 }
 
 }
