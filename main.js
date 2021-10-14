@@ -86,14 +86,16 @@ class Circle {  //arcs
     }
 }
 let outer;
-
+let maxParticles;
 let inner ;
 if(innerWidth <= 500) {
      outer = new Circle(0,0 , 150,1.7, 0.0002, 20, '#25d7dd78') // clock
      inner = new Circle(0,0 , 100, 1.5, -0.001, 10, '#25d7dd') // clock
+     maxParticles = 260
 }else {
     outer = new Circle(0,0 , 250,1.7, 0.0002, 20, '#25d7dd78') // clock
     inner = new Circle(0,0 , 200, 1.5, -0.001, 10, '#25d7dd') // clock
+    maxParticles = 900
 }
 
 
@@ -101,7 +103,7 @@ if(innerWidth <= 500) {
 let particles = [];
 let colors = ['#00b9b738','#00b9b738']
 
-for(let i = 0 ; i<900 ; ++i) {
+for(let i = 0 ; i<maxParticles ; ++i) {
     let dx = (Math.random() - 0.5) * 0.5;
     let dy = (Math.random() - 0.5) * 0.5;
     let radius = Math.random() * 5;
