@@ -7,6 +7,7 @@
     <title>Design</title>
     <script defer src="./main.js"></script>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
             * {
             margin: 0;
@@ -33,18 +34,74 @@
         transform: translate(-50%, -50%);
         font-size: 4rem;
     }
-
+    .ipInput {
+        position: absolute;
+        z-index: 1000;
+        left: 10%;
+        border: 1px solid  #25d7dd;
+        top: 28%;
+        padding: 10px;
+        width: 300px;
+        color: white;
+        font-size: 1.1rem;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .btn-locate {
+        position: absolute;
+        z-index: 1000;
+        top: 28%;
+        padding: 10px;
+        font-size: 1.1rem;
+        width: 90px;
+        color: white;
+        border: 1px solid  #25d7dd;
+        left: 28%;
+        cursor: pointer;
+        transition: all .22s;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .btn-locate:hover  {
+        background-color: #25d7dd70;
+        
+    }
+    .location-data {
+        width: 430px;
+        height: 300px;
+        top: 35%;
+        left: 10%;
+        position: absolute;
+        background-color: #25d7dd41;
+        font-size: 1.5rem;
+        color: #25d7dd;
+        padding: 5px;
+        font-family: 'Orbitron', sans-serif;
+    }
     @media screen and (max-width: 600px) {
   .time {
     font-size: 2rem;
   }
+  
 }
-    
+@media screen and (max-width: 1600px) {
+  .location-data {
+      left: 2%;
+  }
+  .btn-locate {
+    left: 24%; 
+    }
+    .ipInput { 
+        left: 2%;
+    }
+}
 </style>
 
 </head>
 <body>
     <canvas></canvas>
     <h1 class="time">Welcome</h1>
+
+    <input placeholder="Enter Address on Internet.." class="ipInput" type="text">
+    <button onclick="getIpToLocate()" class="btn-locate">Locate</button>
+    <p class="location-data"></p>
 </body>
 </html>
